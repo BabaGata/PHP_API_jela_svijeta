@@ -1,43 +1,48 @@
 # jela_svijeta
 
 ## Primjer rute
-http://127.0.0.1:8000/api/dishes/archive?per_page=1&diff_time=11:00:00&page=2&with=ingredients,tags
+http://127.0.0.1:8000/api/dishes/archive?per_page=1&diff_time=11:00:00&page=6&with=ingredients,tags,category
 
 ```json
 {
     "data": [
         {
-            "id": 10,
-            "title": "Sit illum eos.",
-            "description": "Sed maiores cum unde repellendus sequi. Et suscipit sint quia repellendus iure sapiente. Ut et velit commodi sed quidem necessitatibus. Impedit quo magnam labore ut molestias temporibus.",
-            "status": "RESTORED",
+            "id": 15,
+            "title": "Placeat soluta.",
+            "description": "Quos nesciunt suscipit est nulla iusto quia. Eos quibusdam consequatur labore quia. Impedit deleniti ea corporis laboriosam sunt repudiandae eum ratione. Eaque ad culpa et saepe ut esse.",
+            "status": "DELETED",
+            "category": {
+                "id": 5,
+                "title": "veniam",
+                "slug": "veniam"
+            },
             "tags": [
                 {
-                    "id": 8,
-                    "title": "hic",
-                    "slug": "hic"
+                    "id": 5,
+                    "title": "deserunt",
+                    "slug": "deserunt"
                 }
             ],
             "ingredients": [
                 {
-                    "id": 18,
-                    "title": "fugiat",
-                    "slug": "fugiat",
-                    "amount": 53.6,
-                    "typeAmount": "dkg"
+                    "id": 2,
+                    "title": "nostrum",
+                    "slug": "nostrum",
+                    "amount": 11.7,
+                    "typeAmount": "dcl"
                 },
                 {
-                    "id": 14,
-                    "title": "quidem",
-                    "slug": "quidem",
-                    "amount": null,
-                    "typeAmount": null
+                    "id": 1,
+                    "title": "tempora",
+                    "slug": "tempora",
+                    "amount": 5,
+                    "typeAmount": "per_piece"
                 },
                 {
-                    "id": 16,
-                    "title": "quia",
-                    "slug": "quia",
-                    "amount": 37.9,
+                    "id": 3,
+                    "title": "deleniti",
+                    "slug": "deleniti",
+                    "amount": 74.9,
                     "typeAmount": "dkg"
                 }
             ]
@@ -46,18 +51,58 @@ http://127.0.0.1:8000/api/dishes/archive?per_page=1&diff_time=11:00:00&page=2&wi
     "links": {
         "first": "http://127.0.0.1:8000/api/dishes/archive?page=1",
         "last": "http://127.0.0.1:8000/api/dishes/archive?page=6",
-        "prev": "http://127.0.0.1:8000/api/dishes/archive?page=1",
-        "next": "http://127.0.0.1:8000/api/dishes/archive?page=3"
+        "prev": "http://127.0.0.1:8000/api/dishes/archive?page=5",
+        "next": null
     },
     "meta": {
-        "current_page": 2,
-        "from": 2,
+        "current_page": 6,
+        "from": 6,
         "last_page": 6,
-        "links": [ ...
+        "links": [
+            {
+                "url": "http://127.0.0.1:8000/api/dishes/archive?page=5",
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http://127.0.0.1:8000/api/dishes/archive?page=1",
+                "label": "1",
+                "active": false
+            },
+            {
+                "url": "http://127.0.0.1:8000/api/dishes/archive?page=2",
+                "label": "2",
+                "active": false
+            },
+            {
+                "url": "http://127.0.0.1:8000/api/dishes/archive?page=3",
+                "label": "3",
+                "active": false
+            },
+            {
+                "url": "http://127.0.0.1:8000/api/dishes/archive?page=4",
+                "label": "4",
+                "active": false
+            },
+            {
+                "url": "http://127.0.0.1:8000/api/dishes/archive?page=5",
+                "label": "5",
+                "active": false
+            },
+            {
+                "url": "http://127.0.0.1:8000/api/dishes/archive?page=6",
+                "label": "6",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &raquo;",
+                "active": false
+            }
         ],
         "path": "http://127.0.0.1:8000/api/dishes/archive",
         "per_page": 1,
-        "to": 2,
+        "to": 6,
         "total": 6
     }
 }
