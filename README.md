@@ -2,6 +2,8 @@
 
 ## Primjer rute
 http://127.0.0.1:8000/api/dishes/archive?per_page=1&diff_time=11:00:00&page=2&with=ingredients,tags
+
+```json
 {
     "data": [
         {
@@ -59,6 +61,7 @@ http://127.0.0.1:8000/api/dishes/archive?per_page=1&diff_time=11:00:00&page=2&wi
         "total": 6
     }
 }
+```
 
 ## Popis ruta i funkcionalnosti
 Get
@@ -66,11 +69,14 @@ Get
 2. /api/dishes/search/{title} ->  search ->  pretrazivanje po title, samo nad ne izbrisanim jelima
 3. /api/dishes/archive  -> archive  -> sve vraca dakle i izbrisane podatke, jedino ovaj route ima diff_time za sad !!!
 4. /api/dishes/{id}  ->  show  -> vraca jela po id
+
 Post
 5. /api/dishes  ->  store  ->  sprema podatke o jelu (samo o jelu)
 6. /api/dishes/{id}/restore  ->  restore  ->  vraca izbrisane podatke
+
 Put
 7. /api/dishes/{id}  ->  update  ->  updatea podatke o jelu (samo o jelu)
+
 Delete
 8. /api/dishes/{id}  ->  delete  -> softDelete podataka
 9. /api/dishes/{id}/force_delete  ->  forceDelete  ->  u potpunosti brise podatke
