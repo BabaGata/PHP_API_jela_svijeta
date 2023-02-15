@@ -127,8 +127,8 @@ Delete
 9. /api/dishes/{id}/force_delete  ->  forceDelete  ->  u potpunosti brise podatke
 
 ## Objasnjenje
-Rjesenje zadatka je pod rutom 3. /api/dishes/archive, ostale dodatne stvari sam napravila samo za vjezbu usput
+Rjesenje zadatka je pod rutom 3. /api/dishes/archive, ostale dodatne stvari sam napravila samo za vjezbu usput.
 
-Jezike cu uskoro rjesit samo ce mi duze trebat jer prvi put mi je bilo jako tesko naci materijale sa detaljnijim uputama i tako.
+Jezike cu uskoro rijesiti samo ce mi duze trebat jer prvi put mi je bilo jako tesko naci materijale sa detaljnijim uputama i tako.
 
-## Voljela bih dobiti komentare o tome sto bi moglo biti bolje napravljeno, hvala!
+### Voljela bih dobiti komentare o tome sto bi moglo biti bolje napravljeno, hvala!
