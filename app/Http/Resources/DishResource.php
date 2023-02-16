@@ -16,11 +16,12 @@ class DishResource extends JsonResource
     public function toArray($request)
     {
         $with = explode(',', strtr($request->input('with', ''),[' '=>'']));
+        $locale = app()->getLocale();
 
         $data = [
             'id' => $this->id,
-            'title' => $this->title,
-            'description' => $this->description,
+            'title' => $this->translate($locale)->title,
+            'description' => $this->translate($locale)->description,
             'status' => $this->status,
         ];
     

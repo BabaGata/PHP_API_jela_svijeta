@@ -5,19 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
 
-class Dish extends Model
+class Dish extends Model implements TranslatableContract
 {
-    use HasFactory;
-    use SoftDeletes;
+    use HasFactory, Translatable, SoftDeletes;
     
     protected $table = 'dishes';
+    protected $with = ['translations'];
 
-    protected $fillable = ['title', 'category_id', 'status', 'description'];
+    public $translatedAttributes = ['title', 'description'];
+    protected $fillable = ['category_id', 'status'];
 
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function dish_translations()
+    {
+        return $this->hasMany(DishTranslation::class);
     }
 
     public function tags()

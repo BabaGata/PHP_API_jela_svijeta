@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Dish;
 use App\Models\Category;
+use App\Models\DishTranslation;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 

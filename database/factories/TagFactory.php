@@ -17,11 +17,18 @@ class TagFactory extends Factory
      */
     public function definition()
     {
+        static $id = 0;
+        $id++;
+        $slug_var = 'Tag '.$id;
+        
         return [
-            'title' => $this->faker->unique()->word,
-            'slug' => function (array $attributes) {
-                return Str::slug($attributes['title']);
-            },
+            'en'=>[
+                'title' => 'Tag ENG '.$id,
+            ],
+            'hr'=>[
+                'title' => 'Tag HRV '.$id,
+            ],
+            'slug' => Str::slug($slug_var),
         ];
     }
 }

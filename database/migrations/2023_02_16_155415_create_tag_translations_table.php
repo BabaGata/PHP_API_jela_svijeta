@@ -13,10 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('tag_translations', function (Blueprint $table) {
             $table->id();
-            $table->string('slug')->unique();
-            $table->timestamps();
+            $table->string('locale')->index();
+            $table->unsignedBigInteger('tag_id');
+
+            $table->string('title');
+
+            $table->unique(['tag_id', 'locale']);
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
         });
     }
 
@@ -27,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('tag_translations');
     }
 };

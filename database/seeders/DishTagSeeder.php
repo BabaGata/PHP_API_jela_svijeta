@@ -21,7 +21,7 @@ class DishTagSeeder extends Seeder
             $dish->tags()->attach($tags->random()->id);
         }
         $dishes = Dish::all();
-        foreach(range(1,15) as $i) {
+        foreach(range(1,20) as $i) {
             $dishes->random()->tags()->attach($tags->random()->id);
         }
     }

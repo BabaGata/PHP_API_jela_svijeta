@@ -14,17 +14,26 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/dishes', [DishController::class, 'index']);
-Route::get('/dishes/search/{title}', [DishController::class, 'search']);
-Route::get('/dishes/archive', [DishController::class, 'archive']);
-Route::get('/dishes/{id}', [DishController::class, 'show']);
 
-Route::post('/dishes', [DishController::class, 'store']);
-Route::put('/dishes/{id}', [DishController::class, 'update']);
-Route::post('/dishes/{id}/restore', [DishController::class, 'restore']);
+Route::redirect('/', '/en/dishes');
 
-Route::delete('/dishes/{id}', [DishController::class, 'delete']);
-Route::delete('/dishes/{id}/force_delete', [DishController::class, 'forceDelete']);
+Route::group(['prefix'=>'{language}'], function () {
+
+    Route::get('/dishes', [DishController::class, 'index']);
+    Route::get('/dishes/search/{title}', [DishController::class, 'search']);
+    Route::get('/dishes/archive', [DishController::class, 'archive']);
+    Route::get('/dishes/{id}', [DishController::class, 'show']);
+
+    Route::post('/dishes', [DishController::class, 'store']);
+    Route::put('/dishes/{id}', [DishController::class, 'update']);
+    Route::post('/dishes/{id}/restore', [DishController::class, 'restore']);
+
+    Route::delete('/dishes/{id}', [DishController::class, 'delete']);
+    Route::delete('/dishes/{id}/force_delete', [DishController::class, 'forceDelete']);
+
+});
+
+//Route::get('/en/dishes/{id}', [DishController::class, 'show']);
 
 /*
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

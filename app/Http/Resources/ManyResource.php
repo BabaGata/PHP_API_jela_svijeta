@@ -14,9 +14,11 @@ class ManyResource extends JsonResource
      */
     public function toArray($request)
     {
+        $locale = app()->getLocale();
+
         return [
             'id'=>$this->id,
-            'title'=>$this->title,
+            'title'=>$this->translate($locale)->title,
             'slug'=>$this->slug,
             'amount' => $this->whenPivotLoaded('dish_ingredient', function () {
                 return $this->pivot->amount;

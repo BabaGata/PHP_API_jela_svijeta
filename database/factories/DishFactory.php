@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use Illuminate\Support\Str;
+use App\Models\Dish;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,11 +17,19 @@ class DishFactory extends Factory
      */
     public function definition()
     {
+        static $id = 0;
+        $id++;
         
         return [
-            'title' => $this->faker->unique()->sentence(2),
-            'category_id' => null,
-            'description' => $this->faker->paragraph,
+            'en'=>[
+                'title' => 'Title of the dish '.$id,
+                'description' => 'Description of the dish '.$id,
+            ],
+            'hr'=>[
+                'title' => 'Naslov jela '.$id,
+                'description' => 'Opis jela '.$id,
+            ],
+            'category_id' => null,            
             'status' =>'CREATED',
         ];
     }

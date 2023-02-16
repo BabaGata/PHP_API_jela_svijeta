@@ -19,7 +19,7 @@ class DishIngredientFactory extends Factory
     public function definition()
     {
         $type = $this->faker->randomElement(['dkg','g','dcl','l','per_piece']);
-        return [
+        return [            
             'amount' => $type=='per_piece'? $this->faker->randomDigitNotNull() : $this->faker->randomFloat(1, 10, 100),
             'type_amount'=>$type,
         ];

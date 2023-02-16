@@ -26,12 +26,14 @@ class DishController extends Controller
      /**
      * Display by id
      * 
+     * @param int  $lang  // en was sent as id before
      * @param int  $id
      * @return \Illuminate\Http\Response
      */
 
-    public function show($id)
+    public function show($lang, $id)
     {
+        //dd($id);
         return new DishResource(Dish::find($id));
     }
 
@@ -44,7 +46,7 @@ class DishController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function search(Request $request, $title)
+    public function search(Request $request, $lang, $title)
     {
         $per_page = $request->per_page ?? 10;
         return DishResource::collection(Dish::where('title', 'like', '%'.$title.'%')->paginate($per_page));
@@ -59,13 +61,16 @@ class DishController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $lang, $id)
     {
         $dish = Dish::find($id);
-        $temp = $dish->updated_at;
+        $temp = Dish::find($id);
+        $locale = app()->getLocale();
+
         $dish->update($request->all());
-        if($dish->updated_at!=$temp){
-            $dish->update(['status' => 'UPDATED']);
+        
+        if($dish!=$temp){
+            $dish->update(['status' => 'MODIFIED']);
         }
         return $dish;
     }
@@ -115,10 +120,10 @@ class DishController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function restore($id)
+    public function restore($lang, $id)
     {
         $dish = Dish::onlyTrashed()->findOrFail($id);
-        $dish['status'] = 'RESTORED';
+        $dish['status'] = 'CREATED';
         $dish->restore();
         
         return $dish;
@@ -132,7 +137,7 @@ class DishController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function delete($id)
+    public function delete($lang, $id)
     {
         $dish = Dish::find($id);
         $dish->update(['status' => 'DELETED']);
@@ -150,7 +155,7 @@ class DishController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function forceDelete($id)
+    public function forceDelete($lang, $id)
     {
         $dish = Dish::onlyTrashed()->findOrFail($id);
         $dish->forceDelete();

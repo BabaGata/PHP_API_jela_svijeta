@@ -22,10 +22,10 @@ class DishIngredientSeeder extends Seeder
             $dish->ingredients()->attach($ingredients->random()->id, DishIngredient::factory()->definition());
         }
         $dishes = Dish::all();
-        foreach(range(1,20) as $i) {
+        foreach(range(1,25) as $i) {
             $dishes->random()->ingredients()->attach($ingredients->random()->id);
         }
-        foreach(range(1,10) as $i) {
+        foreach(range(1,15) as $i) {
             $dishes->random()->ingredients()->attach($ingredients->random()->id, DishIngredient::factory()->definition());
         }
     }
