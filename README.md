@@ -147,7 +147,7 @@ http://127.0.0.1:8000/api/hr/dishes/archive?per_page=2&page=1&diff_time=20:00:00
 ```
 
 ## Popis ruta i funkcionalnosti
-    Get
+   Get
 1. /api/dishes  ->  index -> vraca samo jela koja nisu pobrisana
 2. /api/dishes/search/{title} ->  search ->  pretrazivanje po title, samo nad ne izbrisanim jelima
 3. /api/dishes/archive  -> archive  -> sve vraca dakle i izbrisane podatke, jedino ovaj route ima diff_time za sad !!!
