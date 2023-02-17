@@ -147,20 +147,20 @@ http://127.0.0.1:8000/api/hr/dishes/archive?per_page=2&page=1&diff_time=20:00:00
 ```
 
 ## Popis ruta i funkcionalnosti
-Get
+    Get
 1. /api/dishes  ->  index -> vraca samo jela koja nisu pobrisana
 2. /api/dishes/search/{title} ->  search ->  pretrazivanje po title, samo nad ne izbrisanim jelima
 3. /api/dishes/archive  -> archive  -> sve vraca dakle i izbrisane podatke, jedino ovaj route ima diff_time za sad !!!
 4. /api/dishes/{id}  ->  show  -> vraca jela po id
 
-Post
+    Post
 5. /api/dishes  ->  store  ->  sprema podatke o jelu (samo o jelu)
 6. /api/dishes/{id}/restore  ->  restore  ->  vraca izbrisane podatke
 
-Put
+    Put
 7. /api/dishes/{id}  ->  update  ->  updatea podatke o jelu (samo o jelu)
 
-Delete
+    Delete
 8. /api/dishes/{id}  ->  delete  -> softDelete podataka
 9. /api/dishes/{id}/force_delete  ->  forceDelete  ->  u potpunosti brise podatke
 
