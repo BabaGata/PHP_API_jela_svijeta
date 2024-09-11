@@ -166,5 +166,3 @@ http://127.0.0.1:8000/api/hr/dishes/archive?per_page=2&page=1&diff_time=20:00:00
 
 ## Objasnjenje
 Rjesenje zadatka je pod rutom 3. /api/dishes/archive, ostale dodatne stvari sam napravila samo za vjezbu usput.
-
-### Voljela bih dobiti komentare o tome sto bi moglo biti bolje napravljeno, hvala!
